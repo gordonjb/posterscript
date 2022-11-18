@@ -15,6 +15,7 @@ Available Commands:
   completion  Generate the autocompletion script for the specified shell
   help        Help about any command
   libib       Filter libib library by tags
+  logo        Overlay a logo file over a poster file, for example to add network logos
   tpdbarchive Unpack TPDb archive to Plex format
 
 Flags:
@@ -44,7 +45,7 @@ Flags:
 
 The path to a Libib library CSV, as exported from [Settings > Libraries > Export Library (.csv)](https://www.libib.com/library/settings-libraries)
 
-## posterscript
+## check
 
 ### Usage
 
@@ -99,3 +100,26 @@ The Plex local media assets expected layout is described in their documentation:
 #### FILE argument
 
 The path to a poster set ZIP, as downloaded from [The Poster Database](https://theposterdb.com/) using the "Download Set Posters" option.
+
+## logo
+
+### Usage
+
+```bash
+Overlay a logo file over a poster file, for example to add network logos
+
+Usage:
+  posterscript logo FILE [flags]
+
+Flags:
+  -h, --help             help for logo
+  -l, --logoDir string   Directory containing overlay images (default "logos")
+```
+
+Currently, as this is largely for my own use, I have a folder of logo overlays, most of which were extracted from the PSD posted [on r/PlexPosters by u/tscardino](https://www.reddit.com/r/PlexPosters/comments/mdbbp9/cornernetwork_tv_template/), with a few others I added to the template for myself over time. The poster file will be resized to 1000x1500 to match these overlays, which are all transparent 1000x1500 PNGs. I have uploaded my folder of logos [here](https://drive.google.com/drive/folders/1Z6bZDPczbnMgF6YNutdSgw4ZdABp5ypB?usp=share_link)
+
+When run, the script will read all files in logoDir, and allow the user to select one to overlay.
+
+#### FILE argument
+
+The path to a poster image.
